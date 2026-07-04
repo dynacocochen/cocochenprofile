@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>陈骊琳 | 个人品牌</title>
+<style>
+  :root {
+    --bg: #f7f3ef;
+    --bg-card: #fffdfa;
+    --text: #4a4543;
+    --text-light: #7a7472;
+    --text-lighter: #9a9492;
+    --accent-rose: #c4a8a2;
+    --accent-rose-light: #e8d5d0;
+    --accent-sage: #a3b5a6;
+    --accent-sage-light: #d0ddd2;
+    --accent-blue: #8fa4b5;
+    --border: #e8e2dc;
+    --shadow: 0 4px 20px rgba(0,0,0,0.06);
+    --shadow-hover: 0 12px 36px rgba(0,0,0,0.10);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(247, 243, 239, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 40px;
+  }
+  nav .nav-inner {
+    max-width: 960px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  nav .logo { font-size: 18px; font-weight: 600; color: var(--accent-rose); letter-spacing: 1px; }
+  nav .nav-links { display: flex; gap: 28px; list-style: none; }
+  nav .nav-links a {
+    text-decoration: none; color: var(--text-light); font-size: 14px;
+    transition: color 0.3s;
+  }
+  nav .nav-links a:hover { color: var(--accent-rose); }
+
+  section { padding: 100px 24px; }
+  .container { max-width: 860px; margin: 0 auto; }
+  .section-label {
+    font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--accent-rose); margin-bottom: 16px; font-weight: 500;
+  }
+  .section-title {
+    font-size: 28px; font-weight: 600; color: var(--text);
+    margin-bottom: 40px; letter-spacing: 1px;
+  }
+
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding-top: 56px;
+  }
+  .hero .container {
+    display: flex; align-items: center; gap: 60px;
+  }
+  .hero-text { flex: 1; }
+  .hero-text .greeting {
+    font-size: 14px; color: var(--accent-rose); letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .hero-text h1 {
+    font-size: 48px; font-weight: 700; color: var(--text);
+    letter-spacing: 2px; margin-bottom: 12px;
+  }
+  .hero-text .tagline {
+    font-size: 18px; color: var(--text-light); margin-bottom: 24px;
+    padding: 8px 20px; background: var(--accent-rose-light);
+    display: inline-block; border-radius: 20px;
+  }
+  .hero-text .intro {
+    font-size: 15px; color: var(--text-light); line-height: 1.8;
+    max-width: 400px;
+  }
+  .resume-btn {
+    display: inline-block; margin-top: 16px;
+    padding: 8px 20px; border: 1px solid var(--accent-rose);
+    border-radius: 24px; color: var(--accent-rose);
+    font-size: 13px; text-decoration: none;
+    transition: all 0.25s; cursor: pointer;
+  }
+  .resume-btn:hover {
+    background: var(--accent-rose); color: #fff;
+  }
+  .hero-photo {
+    flex-shrink: 0;
+    width: 240px; height: 240px; border-radius: 50%;
+    background: var(--accent-rose-light);
+    display: flex; align-items: center; justify-content: center;
+    border: 3px solid var(--accent-rose);
+    overflow: hidden;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    box-shadow: var(--shadow);
+  }
+  .hero-photo:hover { transform: scale(1.03); box-shadow: var(--shadow-hover); }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-photo .photo-placeholder {
+    text-align: center; color: var(--accent-rose);
+    font-size: 13px; line-height: 1.6;
+  }
+  .hero-photo .photo-placeholder .icon { font-size: 40px; margin-bottom: 8px; }
+
+  .hl { font-weight: 600; }
+
+  .exp-category {
+    font-size: 14px; font-weight: 600; color: var(--accent-rose);
+    margin: 36px 0 16px; padding-bottom: 8px;
+    border-bottom: 1px solid var(--accent-rose-light);
+    letter-spacing: 1px;
+  }
+  .exp-category:first-child { margin-top: 0; }
+
+  .strengths-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  }
+  .strength-card {
+    background: var(--bg-card); border-radius: 16px; padding: 28px;
+    border: 1px solid var(--border); transition: all 0.35s ease;
+    box-shadow: var(--shadow); cursor: default;
+  }
+  .strength-card:hover {
+    transform: translateY(-4px); box-shadow: var(--shadow-hover);
+    border-color: var(--accent-rose-light);
+  }
+  .strength-card .emoji { font-size: 32px; margin-bottom: 12px; }
+  .strength-card h3 { font-size: 17px; margin-bottom: 8px; color: var(--text); }
+  .strength-card p { font-size: 14px; color: var(--text-light); line-height: 1.6; }
+
+  .projects-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  }
+  .project-card {
+    background: var(--bg-card); border-radius: 16px; padding: 32px 24px;
+    border: 1px solid var(--border); transition: all 0.35s ease;
+    box-shadow: var(--shadow); cursor: default;
+    text-align: center;
+  }
+  .project-card:hover {
+    transform: translateY(-4px); box-shadow: var(--shadow-hover);
+    border-color: var(--accent-sage-light);
+  }
+  .project-card .emoji { font-size: 44px; margin-bottom: 16px; }
+  .project-card h3 { font-size: 17px; margin-bottom: 8px; color: var(--text); }
+  .project-card p { font-size: 13px; color: var(--text-light); line-height: 1.6; }
+
+  /* 项目详情卡片 */
+  .case-card {
+    background: var(--bg-card); border-radius: 16px; padding: 0;
+    border: 1px solid var(--border); transition: all 0.35s ease;
+    box-shadow: var(--shadow); overflow: hidden;
+    margin-bottom: 20px;
+  }
+  .case-card:hover { box-shadow: var(--shadow-hover); }
+  .case-card .case-header {
+    padding: 32px 28px 20px; cursor: pointer;
+    transition: background 0.3s;
+  }
+  .case-card .case-header:hover { background: #fdfaf7; }
+  .case-card .case-emoji { font-size: 36px; margin-bottom: 8px; }
+  .case-card .case-meta {
+    font-size: 12px; color: var(--text-lighter); margin-bottom: 6px;
+  }
+  .case-card h3 { font-size: 18px; color: var(--text); margin-bottom: 10px; }
+  .case-card .case-summary {
+    font-size: 14px; color: var(--text-light); line-height: 1.7;
+  }
+  .case-card .case-toggle {
+    display: inline-flex; align-items: center; gap: 6px;
+    margin-top: 14px; font-size: 13px; color: var(--accent-rose);
+    cursor: pointer; transition: color 0.3s; border: none; background: none;
+    padding: 0; font-family: inherit;
+  }
+  .case-card .case-toggle:hover { color: #a88a84; }
+  .case-card .case-toggle .arrow {
+    display: inline-block; font-size: 11px;
+  }
+
+  .case-card .case-detail {
+    height: 0; overflow: hidden;
+    transition: height 2s ease-out;
+  }
+  .case-card .case-detail-inner {
+    border-top: 1px solid var(--border);
+    padding: 24px 28px 32px;
+  }
+  .case-card .case-section {
+    margin-bottom: 24px;
+  }
+  .case-card .case-section:last-child { margin-bottom: 0; }
+  .case-card .case-section h4 {
+    font-size: 14px; color: var(--accent-rose); margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .case-card .case-section p,
+  .case-card .case-section li {
+    font-size: 13px; color: var(--text-light); line-height: 1.8;
+    margin-bottom: 6px;
+  }
+  .case-card .case-section ul {
+    list-style: none; padding: 0;
+  }
+  .case-card .case-section ul li { padding-left: 16px; position: relative; }
+  .case-card .case-section ul li::before {
+    content: '·'; position: absolute; left: 4px; color: var(--accent-rose-light);
+  }
+  .case-card .case-section .sub-list li { padding-left: 24px; }
+  .case-card .case-section .sub-list li::before {
+    content: '◦'; left: 10px; color: var(--text-lighter);
+  }
+  .case-card .case-section a {
+    color: var(--accent-rose); text-decoration: underline;
+    word-break: break-all;
+  }
+  .case-photo {
+    margin-top: 16px; border-radius: 12px; overflow: hidden;
+    text-align: center;
+  }
+  .case-photo img {
+    max-width: 360px; display: inline-block; border-radius: 12px;
+  }
+
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before {
+    content: ''; position: absolute; left: 8px; top: 4px; bottom: 4px;
+    width: 1px; background: var(--accent-rose-light);
+  }
+  .timeline-item {
+    position: relative; margin-bottom: 32px; padding-left: 24px;
+  }
+  .timeline-item::before {
+    content: ''; position: absolute; left: -24px; top: 8px;
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--accent-rose); border: 2px solid var(--bg);
+  }
+  .timeline-item .time {
+    font-size: 12px; color: var(--accent-rose); letter-spacing: 1px;
+    margin-bottom: 4px;
+  }
+  .timeline-item h3 { font-size: 16px; color: var(--text); margin-bottom: 2px; }
+  .timeline-item .subtitle {
+    font-size: 13px; color: var(--text-lighter); margin-bottom: 8px;
+  }
+  .timeline-item p {
+    font-size: 13px; color: var(--text-lighter); line-height: 1.7;
+  }
+  .timeline-item ul { list-style: none; padding: 0; }
+  .timeline-item ul li {
+    font-size: 13px; color: var(--text-light); line-height: 1.7;
+    padding-left: 16px; position: relative; margin-bottom: 4px;
+  }
+  .timeline-item ul li::before {
+    content: '—'; position: absolute; left: 0; color: var(--accent-rose-light);
+  }
+
+  /* 技能图谱 - 卡片折叠布局 */
+  .skills-cards {
+    display: flex; gap: 20px; justify-content: center;
+    flex-wrap: wrap; align-items: flex-start;
+  }
+  .skill-card {
+    flex: 1; min-width: 200px; max-width: 260px;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 16px; padding: 28px 20px 20px;
+    cursor: pointer; transition: all 0.35s ease;
+    box-shadow: var(--shadow);
+  }
+  .skill-card:hover { box-shadow: var(--shadow-hover); }
+  .skill-card .card-title {
+    font-size: 18px; font-weight: 700; color: var(--text);
+    text-align: center; margin-bottom: 0;
+    transition: margin 0.35s;
+  }
+  .skill-card.open .card-title { margin-bottom: 16px; }
+  .skill-card .card-body {
+    height: 0; overflow: hidden;
+    transition: height 0.35s ease-out;
+  }
+  .skill-card.open .card-body {
+    min-height: 200px;
+  }
+  .skill-card .card-body .tags {
+    display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+    padding: 6px 4px;
+  }
+  .st {
+    padding: 6px 14px; border-radius: 20px; font-size: 12px;
+    background: var(--bg-card); border: 1px solid var(--border);
+    color: var(--text-light); transition: all 0.25s ease;
+    cursor: default; white-space: nowrap;
+  }
+  .st:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }
+  .st.core {
+    font-weight: 600; color: var(--text);
+    border-color: var(--accent-rose);
+    background: rgba(181, 141, 131, 0.06);
+  }
+  .st.core:hover {
+    border-color: var(--accent-rose);
+    background: rgba(181, 141, 131, 0.12);
+    transform: scale(1.1);
+  }
+  .skills-hint {
+    text-align: center; margin-top: 16px;
+    font-size: 12px; color: var(--text-lighter);
+  }
+
+  .contact-box {
+    background: var(--bg-card); border-radius: 16px; padding: 40px;
+    text-align: center; border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  .contact-box .email {
+    font-size: 20px; color: var(--accent-rose);
+    text-decoration: none; font-weight: 500;
+  }
+  .contact-box .email:hover { text-decoration: underline; }
+  .contact-box .links {
+    margin-top: 20px; display: flex; justify-content: center; gap: 16px;
+    flex-wrap: wrap;
+  }
+  .contact-box .links a, .contact-box .links span {
+    color: var(--accent-rose); font-size: 14px;
+    padding: 6px 16px; border-radius: 20px; border: 1px solid var(--accent-rose);
+    transition: all 0.25s; text-decoration: none;
+  }
+  .contact-box .links a:hover {
+    background: var(--accent-rose); color: #fff;
+  }
+  .copy-btn {
+    margin-top: 16px; padding: 6px 20px; border: 1px solid var(--border);
+    border-radius: 24px; background: transparent; color: var(--text-lighter);
+    font-size: 12px; cursor: pointer; transition: all 0.25s;
+    font-family: inherit;
+  }
+  .copy-btn:hover { border-color: var(--text-light); color: var(--text-light); }
+  .copy-btn.copied { background: var(--accent-sage); border-color: var(--accent-sage); color: #fff; }
+
+  /* 写在最后 */
+  .finale-content { max-width: 680px; margin: 0 auto; }
+  .finale-content > p {
+    font-size: 15px; line-height: 2; color: var(--text-light); margin-bottom: 16px;
+  }
+  .finale-content > p strong { color: var(--text); font-weight: 600; }
+  .finale-flex { display: flex; gap: 28px; align-items: flex-end; }
+  .finale-text { flex: 1; min-width: 0; }
+  .finale-text p {
+    font-size: 15px; line-height: 2; color: var(--text-light); margin: 0 0 16px;
+  }
+  .finale-text p:last-child { margin-bottom: 0; }
+  .finale-text p strong { color: var(--text); font-weight: 600; }
+  .finale-photo { width: auto; flex-shrink: 0; }
+  .finale-photo img { height: 100%; width: auto; display: block; border-radius: 8px; }
+
+  footer { text-align: center; padding: 40px; color: var(--text-lighter); font-size: 13px; }
+
+  @media (max-width: 768px) {
+    .hero .container { flex-direction: column-reverse; text-align: center; gap: 32px; }
+    .hero-text h1 { font-size: 36px; }
+    .hero-text .intro { max-width: 100%; }
+    .hero-photo { width: 180px; height: 180px; }
+    .strengths-grid { grid-template-columns: 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 20px; }
+    nav .nav-links { gap: 16px; }
+    section { padding: 64px 16px; }
+    .finale-flex { gap: 16px; }
+    .skills-grid { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="logo">陈骊琳</div>
+    <ul class="nav-links">
+      <li><a href="#home">首页</a></li>
+      <li><a href="#strengths">优势</a></li>
+      <li><a href="#projects">项目</a></li>
+      <li><a href="#experience">经历</a></li>
+      <li><a href="#finale">写在最后</a></li>
+      <li><a href="#contact">联系</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero" id="home">
+  <div class="container">
+    <div class="hero-text">
+      <div class="greeting">HELLO, I'M</div>
+      <h1>陈骊琳</h1>
+      <div class="tagline">懂内容的策略脑 · 品牌营销策划人</div>
+      <p class="intro">
+        香港大学传媒硕士 + 中国传媒大学翻译/新闻双背景。<br>
+        擅长以内容为锚点，驱动品牌增长与用户连接。<br>
+        4段实习、3段实践，从媒体到品牌，从策略到执行。
+      </p>
+      <a href="陈骊琳 香港大学+中国传媒大学.pdf" download class="resume-btn">点击下载简历</a>
+    </div>
+    <div class="hero-photo">
+      <img src="个人照片.jpg" alt="陈骊琳">
+    </div>
+  </div>
+</section>
+
+<section id="strengths">
+  <div class="container">
+    <div class="section-label">CORE STRENGTHS</div>
+    <div class="section-title">核心优势</div>
+    <div class="strengths-grid">
+      <div class="strength-card">
+        <div class="emoji">🌐</div>
+        <h3>双语内容策略</h3>
+        <p>翻译+新闻双学科背景，雅思8分（听阅满分），CATTI三级笔译。从官方时政审校到小红书爆款笔记，能用两种语言体系讲好品牌故事，确保"零差错"的专业质感与"高共鸣"的流量质感。</p>
+      </div>
+      <div class="strength-card">
+        <div class="emoji">📈</div>
+        <h3>新媒体增长运营</h3>
+        <p>精通小红书/视频号/播客全平台玩法。个人账号冷启动单条破78w+阅读，官号运营期间互动率拉升10%。擅长从0搭建内容矩阵，用低成本撬动高曝光。</p>
+      </div>
+      <div class="strength-card">
+        <div class="emoji">🎯</div>
+        <h3>品牌活动策划</h3>
+        <p>从20+场线下创意文化活动到1000+人线上女性赋能活动，擅长捕捉社会情绪，把品牌理念落地为可参与、可传播的沉浸式事件，多次获人民日报等主流媒体自发报道。</p>
+      </div>
+      <div class="strength-card">
+        <div class="emoji">📋</div>
+        <h3>项目统筹管理</h3>
+        <p>资源整合与多线程交付的"定海神针"。统筹过全国级赛事（覆盖500+选手）、跨国公益捐赠（联动40+家机构传播，完成跨国物资交付），擅长在复杂利益方中推进节点，确保100%落地。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" style="background: #f2eeea;">
+  <div class="container">
+    <div class="section-label">SIGNATURE PROJECTS</div>
+    <div class="section-title">代表项目</div>
+
+    <!-- 项目一：跑路艺术小组 -->
+    <div class="case-card">
+      <div class="case-header" onclick="toggleCase(this.parentElement)">
+        <div class="case-emoji">🏮</div>
+        <div class="case-meta">跑路艺术小组 | 2022.04-至今</div>
+        <h3>潮汕文化IP活化与青年传播</h3>
+        <p class="case-summary">通过播客、小红书等内容传播渠道，结合创意市集等线下活动，将潮汕非遗、民俗"翻译"为年轻人感兴趣的内容。运营小红书账号涨粉<span class="hl">3.2k+</span>，落地<span class="hl">20+场</span>线下活动，获<span class="hl">人民日报</span>、<span class="hl">南方日报</span>等官方媒体报道。</p>
+        <span class="case-toggle">查看案例详情 <span class="arrow">▾</span></span>
+      </div>
+      <div class="case-detail">
+        <div class="case-detail-inner">
+          <div class="case-section">
+            <h4>背景与挑战</h4>
+            <p>潮汕传统文化传播长期停留在"纪录片式"或"政府宣传片"层面，难以触达年轻受众。如何在尊重文化内核的前提下，让潮汕文化在青年群体中"活"起来，并实现跨地域文化对话，是项目的核心命题。</p>
+          </div>
+          <div class="case-section">
+            <h4>我的角色与策略</h4>
+            <p>作为核心成员和活动主要操盘手之一，深度参与策划、落地全流程，并负责对外合作与内容传播。核心策略：</p>
+            <ul>
+              <li><span class="hl">在地文化翻译</span>：将潮汕文化植入青年感兴趣的场景。例如在播客中用"NGO"类比善堂；策划"走街串巷创意速写"用拼贴记录老街；将潮州歌册与现代乐队融合在城中村老厝演出。</li>
+              <li><span class="hl">跨地域联动</span>：对接如成都丸露营、深圳食货星球等其他城市的青年文化品牌，以"潮汕文化快闪"进入外地市场，并拓展至南洋等与潮汕有历史链接的地区。</li>
+              <li><span class="hl">媒体传播</span>：通过播客、小红书、公众号进行多平台活动宣发与内容种草。</li>
+            </ul>
+          </div>
+          <div class="case-section">
+            <h4>关键执行与成果</h4>
+            <ul>
+              <li>统筹"城市逃跑计划"创意市集（潮州首个，5天线上曝光<span class="hl">20w+</span>，现场<span class="hl">6000+</span>人次，获<span class="hl">南方日报</span>报道）、"省尾国角"文化周等<span class="hl">20+</span>场活动，平均参与<span class="hl">100+</span>人，获<span class="hl">人民日报</span>、<span class="hl">南方日报</span>等官方媒体报道。</li>
+              <li>小红书增长至粉丝<span class="hl">3.2k+</span>，单篇最高阅读<span class="hl">7.3k+</span>；播客已更新11期，订阅<span class="hl">620+</span></li>
+              <li>与<span class="hl">10+</span>家跨城机构建立合作，推动小组成为<span class="hl">联合国教科文组织亚太遗产中心</span>（HERITAGE Asia-Pacific）组织会员。</li>
+            </ul>
+            <div class="case-photo"><img src="照片2.jpg" alt="跑路艺术小组活动现场"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 项目二：菠萝壳BreakCSE -->
+    <div class="case-card">
+      <div class="case-header" onclick="toggleCase(this.parentElement)">
+        <div class="case-emoji">🎗️</div>
+        <div class="case-meta">菠萝壳BreakCSE | 2023.02-2023.12</div>
+        <h3>土叙地震跨国女性公益救援</h3>
+        <p class="case-summary">土叙地震后迅速响应，面向公众发起"为灾区女性捐赠卫生巾"募捐活动，联动<span class="hl">30+</span>家机构联合传播，克服平台受阻等突发状况，最终完成<span class="hl">5000</span>份卫生巾的跨国采购与发放。</p>
+        <span class="case-toggle">查看案例详情 <span class="arrow">▾</span></span>
+      </div>
+      <div class="case-detail">
+        <div class="case-detail-inner">
+          <div class="case-section">
+            <h4>背景与挑战</h4>
+            <p>2023年2月，<span class="hl">土耳其-叙利亚</span>边境发生强烈地震，造成大量人员伤亡与流离失所。震后灾区女性生理卫生用品几乎完全缺失。作为大学生公益组织，面临信任门槛、跨国物流、小额善款如何最大化价值三重挑战。</p>
+          </div>
+          <div class="case-section">
+            <h4>我的角色与策略</h4>
+            <p>作为商务部负责人，负责项目外联与合作统筹：</p>
+            <ul>
+              <li><span class="hl">传播杠杆</span>：将项目包装为<span class="hl">"可联合发声的公益事件"</span>，邀请不同领域机构作为<span class="hl">"联合传播方"</span>共同发声，实现影响力的几何级放大。</li>
+              <li><span class="hl">信任建设</span>：全程公示款项用途、采购票据、志愿者对接截图及发放返图，全程透明可追溯（详见<a href="https://mp.weixin.qq.com/s/nIUv0s2xWlhJkT10QXo4Cg" target="_blank">推文</a>）。</li>
+              <li><span class="hl">风险应急</span>：首次募捐因平台冻结资金导致项目停滞，快速复盘后启动二次募捐，更换为"购买性教育课程包=捐赠卫生巾"模式，降低平台风险。</li>
+            </ul>
+          </div>
+          <div class="case-section">
+            <h4>关键执行与成果</h4>
+            <ul>
+              <li><span class="hl">48</span>小时内完成项目文案、视觉设计与首批<span class="hl">30+</span>家机构的后台联络。</li>
+              <li>通过叙利亚当地志愿者完成采购与发放，最终捐出价值<span class="hl">12,000</span>元的<span class="hl">5000</span>份卫生巾。</li>
+              <li>项目后升级为长期品牌<span class="hl">"月潮引力行动"</span>，转向关注国内山区女童。</li>
+            </ul>
+            <div class="case-photo"><img src="照片1.png" alt="物资发放现场"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 项目三：SHEROLEAGUE -->
+    <div class="case-card">
+      <div class="case-header" onclick="toggleCase(this.parentElement)">
+        <div class="case-emoji">🤝</div>
+        <div class="case-meta">SHEROLEAGUE 全球青年女性领袖联合会 | 2022.04-2023.04</div>
+        <h3>青年女性赋能品牌建设与社群运营</h3>
+        <p class="case-summary">从0到1搭建SHERO北京分会的活动体系与内容矩阵，策划落地10期女性赋能主题活动，运营公众号涨粉至<span class="hl">1000+</span>，构建覆盖<span class="hl">2000+</span>目标人群的12个核心社群。</p>
+        <span class="case-toggle">查看案例详情 <span class="arrow">▾</span></span>
+      </div>
+      <div class="case-detail">
+        <div class="case-detail-inner">
+          <div class="case-section">
+            <h4>背景与挑战</h4>
+            <p>SHEROLEAGUE是一个全球性的青年女性领袖网络，在北京分会初创阶段，需要在零预算、全员线上协作的情况下，持续产出高质量内容，快速建立品牌认知并形成稳定的参与群体。</p>
+          </div>
+          <div class="case-section">
+            <h4>我的角色与策略</h4>
+            <p>作为北京分会主席，负责整体策划与执行。</p>
+            <ul>
+              <li><span class="hl">公众号内容矩阵</span>：活动前2轮预热宣发，活动后精华回顾，形成完整传播闭环；定期推荐女性主义书籍、翻译联合国报告，建立"有信息增量的内容"品牌认知；与其他女性主义组织互推活动，扩大彼此在目标人群中的触达面。</li>
+              <li><span class="hl">社群分层运营</span>：按创业、学术、艺术等兴趣标签细分12个社群，定期投放定制化内容。</li>
+            </ul>
+          </div>
+          <div class="case-section">
+            <h4>关键执行与成果</h4>
+            <ul>
+              <li>策划落地<span class="hl">10</span>期活动（嘉宾对谈、观影讨论、读书会等），累计覆盖<span class="hl">1000+</span>青年女性。</li>
+              <li>发布<span class="hl">30+</span>篇公众号内容，粉丝从0涨至<span class="hl">900+</span>，平均阅读量600+。</li>
+              <li>拓展<span class="hl">15+</span>家女性友好机构作为联合传播伙伴，12个核心社群覆盖<span class="hl">2000+</span>人。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 项目四：中国日报 -->
+    <div class="case-card">
+      <div class="case-header" onclick="toggleCase(this.parentElement)">
+        <div class="case-emoji">🎤</div>
+        <div class="case-meta">中国日报 21世纪报项目部 | 2024.07-2024.09</div>
+        <h3>全国级英语演讲赛事新媒体操盘</h3>
+        <p class="case-summary">为"21世纪杯"全国英语演讲比赛策划新媒体宣传，通过内容策略与流程化执行，在两周内实现赛事全国曝光度提升<span class="hl">30%</span>，并统筹覆盖<span class="hl">500+</span>选手的颁奖环节，保障线下活动<span class="hl">零失误</span>落地。</p>
+        <span class="case-toggle">查看案例详情 <span class="arrow">▾</span></span>
+      </div>
+      <div class="case-detail">
+        <div class="case-detail-inner">
+          <div class="case-section">
+            <h4>背景与挑战</h4>
+            <p>"21世纪杯"是中国日报社主办的全国性英语演讲赛事，每年覆盖全国各赛区。在新媒体传播端，面临两大痛点：各赛区内容质量参差不齐，缺乏统一调性；赛事"比赛"属性过重，如何让大众主动关注是核心挑战。</p>
+          </div>
+          <div class="case-section">
+            <h4>我的角色与策略</h4>
+            <p>作为项目部实习生，负责：</p>
+            <ul>
+              <li><span class="hl">内容策略</span>：提出"高燃混剪+选手幕后"组合，用情绪共鸣替代硬广。</li>
+              <li><span class="hl">流程化执行</span>：建立"素材收集-快速剪辑-三级审核-定时发布"SOP，每周稳定产出5+条视频。</li>
+              <li><span class="hl">赛区统筹</span>：对接全国各赛区负责人，制定颁奖执行手册。</li>
+            </ul>
+          </div>
+          <div class="case-section">
+            <h4>关键执行与成果</h4>
+            <ul>
+              <li>每周产出5+条视频，总播放量超<span class="hl">18k</span>，赛事曝光度提升<span class="hl">30%</span>。</li>
+              <li>统筹<span class="hl">500+</span>名选手的颁奖流程，<span class="hl">零失误</span>落地。</li>
+              <li>内容生产SOP被项目部采纳，延续用于后续赛事。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-label">EXPERIENCE</div>
+    <div class="section-title">实习与实践</div>
+
+    <!-- 教育背景 -->
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time">2026 届</div>
+        <h3>香港大学 — 传媒，文化与创意城市 硕士</h3>
+        <div class="subtitle">GPA <span class="hl">3.78/4.3</span>（专业前15%）</div>
+      </div>
+      <div class="timeline-item">
+        <div class="time">2025 届</div>
+        <h3>中国传媒大学 — 翻译（主修）/ 新闻（辅修）</h3>
+        <div class="subtitle">GPA 翻译 <span class="hl">3.79/4.0</span> · 新闻 <span class="hl">3.77/4.0</span>（均专业前10%）</div>
+      </div>
+    </div>
+
+    <!-- 实习经历 -->
+    <div class="exp-category">▎实习经历</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time">2024.07 — 2024.09</div>
+        <h3>中国日报（21世纪报项目部）</h3>
+        <ul>
+          <li>策划执行赛事新媒体宣传，周产5+条视频，累计曝光超<span class="hl">18k</span>，助力曝光度提升<span class="hl">30%</span></li>
+          <li>统筹全国各赛区颁奖流程，覆盖<span class="hl">500+</span>选手</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="time">2023.07 — 2023.09</div>
+        <h3>视觉中国集团（资讯内容运营部）</h3>
+        <ul>
+          <li>日均编审10+篇新闻稿，<span class="hl">零违规/零差错</span>发布</li>
+          <li>参与涿州山洪等重大事件专题策划，单组下载量<span class="hl">500+</span></li>
+          <li>挖掘签约4名跨区域摄影师</li>
+        </ul>
+      </div>
+      <div class="timeline-item">
+        <div class="time">2024.01 — 2024.02</div>
+        <h3>汕头融媒集团（汕头电视台）</h3>
+        <ul>
+          <li>撰写10+篇官方新闻稿（均阅<span class="hl">10k+</span>）</li>
+          <li>独立拍摄剪辑英歌舞/焰火晚会等15+条视频（均阅<span class="hl">15k+</span>）</li>
+          <li>运营新媒体后台，互动率提升<span class="hl">10%</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 社会实践 -->
+    <div class="exp-category">▎社会实践</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time">2023.02 — 2023.12</div>
+        <h3>菠萝壳BreakCSE（商务部负责人）</h3>
+        <p>主导土叙地震女性公益捐赠项目，建立并维护<span class="hl">109</span>家合作单位资源库，制定标准化合作规范。</p>
+      </div>
+      <div class="timeline-item">
+        <div class="time">2022.04 — 2023.04</div>
+        <h3>SHEROLEAGUE 全球青年女性领袖联合会（北京主席）</h3>
+        <p>策划落地<span class="hl">10</span>期女性赋能主题活动，负责品牌内容矩阵与社群运营。</p>
+      </div>
+      <div class="timeline-item">
+        <div class="time">2022.04 — 至今</div>
+        <h3>跑路艺术小组（核心成员，公关部负责人）</h3>
+        <p>策划落地<span class="hl">20+</span>场线下活动，负责对外合作拓展与潮汕文化传播项目的传播策略。</p>
+      </div>
+    </div>
+
+    <!-- 校园经历 -->
+    <div class="exp-category">▎校园经历</div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="time">2023.04 — 2024.10</div>
+        <h3>中国传媒大学设计思维学院学生协会（主席）</h3>
+        <p>统筹20人核心团队，联合北京老字号主办创新营、协办北京国际设计周等10+<span class="hl">从校级到国家级</span>活动，校级活动累计参与500+人。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section style="background: #f2eeea;">
+  <div class="container">
+    <div class="section-label">SKILLS</div>
+    <div class="section-title">技能图谱</div>
+    <div class="skills-cards">
+      <div class="skill-card" onclick="toggleSkillCard(this)">
+        <div class="card-title">语言能力</div>
+        <div class="card-body">
+          <div class="tags">
+            <span class="st core">雅思 8 分</span>
+            <span class="st">英语专八良好专四优秀</span>
+            <span class="st">六级 609 分</span>
+            <span class="st">CATTI 三级笔译</span>
+            <span class="st">粤语流畅</span>
+          </div>
+        </div>
+      </div>
+      <div class="skill-card" onclick="toggleSkillCard(this)">
+        <div class="card-title">媒体运营</div>
+        <div class="card-body">
+          <div class="tags">
+            <span class="st">视频剪辑</span>
+            <span class="st">音频剪辑</span>
+            <span class="st">公众号排版</span>
+            <span class="st core">小红书运营</span>
+            <span class="st">视频号运营</span>
+            <span class="st">流量运营</span>
+          </div>
+        </div>
+      </div>
+      <div class="skill-card" onclick="toggleSkillCard(this)">
+        <div class="card-title">通用能力</div>
+        <div class="card-body">
+          <div class="tags">
+            <span class="st core">项目策划</span>
+            <span class="st core">资源整合</span>
+            <span class="st">商务合作</span>
+            <span class="st">内容审核</span>
+            <span class="st">团队管理</span>
+            <span class="st core">沟通协作</span>
+            <span class="st core">AI工具应用</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="skills-hint">点击卡片查看技能详情</p>
+  </div>
+</section>
+
+<section id="finale">
+  <div class="container">
+    <div class="section-label">ABOUT ME</div>
+    <div class="section-title">写在最后</div>
+    <div class="finale-content">
+      <p>前面写了这么多，其实都是在回答一个问题：<strong>"我能为你做什么。"</strong></p>
+      <p>但如果你还想知道——<strong>我是谁？</strong></p>
+      <div class="finale-flex">
+        <div class="finale-text">
+          <p>我是一个挺爱折腾的人。喜欢把想法变成现实，也喜欢在路上去遇见一些意料之外的人和事。</p>
+          <p>热爱音乐，热爱运动，热爱播客和城市漫游。本质上是一个好奇的人，对好的故事、好的内容、好的对话，永远有胃口。</p>
+          <p>不是什么天才，也没有特别突出的单项——各方面都还算均衡，但胜在一直保持着学习和前进的劲头。这大概是我最确定的一件事。</p>
+          <p>很高兴你翻到了这里。如果想聊聊工作机会、合作的可能性，或者只是想认识一下——<strong>都欢迎随时找我。</strong></p>
+        </div>
+        <div class="finale-photo">
+          <img src="照片3.png" alt="陈骊琳">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-label">GET IN TOUCH</div>
+    <div class="section-title">联系方式</div>
+    <div class="contact-box">
+      <div class="links">
+        <a href="mailto:cocodynamite@163.com">cocodynamite@163.com</a>
+        <span>+86-19835962267</span>
+      </div>
+      <button class="copy-btn" onclick="copyContact()">一键复制联系方式</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 陈骊琳 · 个人品牌展示页</p>
+</footer>
+
+<script>
+function toggleCase(card) {
+  const isOpen = card.classList.contains('open');
+  const detail = card.querySelector('.case-detail');
+  const toggle = card.querySelector('.case-toggle');
+
+  if (isOpen) {
+    detail.style.transition = 'height 1s ease-out';
+    detail.style.height = detail.scrollHeight + 'px';
+    requestAnimationFrame(() => {
+      detail.style.height = '0px';
+    });
+    card.classList.remove('open');
+    toggle.innerHTML = '查看案例详情 <span class="arrow">▾</span>';
+    const cleanup = () => { detail.removeEventListener('transitionend', cleanup); detail.style.height = ''; };
+    detail.addEventListener('transitionend', cleanup);
+  } else {
+    card.classList.add('open');
+    detail.style.transition = 'height 2s ease-out';
+    detail.style.height = 'auto';
+    const h = detail.scrollHeight;
+    detail.style.height = '0px';
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        detail.style.height = h + 'px';
+      });
+    });
+    toggle.innerHTML = '收起详情 <span class="arrow">▴</span>';
+    const cleanup = () => { detail.removeEventListener('transitionend', cleanup); detail.style.height = 'auto'; };
+    detail.addEventListener('transitionend', cleanup);
+  }
+}
+
+function copyContact() {
+  const text = 'cocodynamite@163.com\n+86-19835962267';
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('.copy-btn');
+    btn.textContent = '已复制！';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '一键复制联系方式';
+      btn.classList.remove('copied');
+    }, 1500);
+  });
+}
+
+function toggleSkillCard(card) {
+  const isOpen = card.classList.contains('open');
+  const body = card.querySelector('.card-body');
+
+  if (isOpen) {
+    body.style.height = body.scrollHeight + 'px';
+    requestAnimationFrame(() => { body.style.height = '0px'; });
+    card.classList.remove('open');
+    const cleanup = () => { body.removeEventListener('transitionend', cleanup); body.style.height = ''; };
+    body.addEventListener('transitionend', cleanup);
+  } else {
+    card.classList.add('open');
+    body.style.height = 'auto';
+    const h = body.scrollHeight;
+    body.style.height = '0px';
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => { body.style.height = h + 'px'; });
+    });
+    const cleanup = () => { body.removeEventListener('transitionend', cleanup); body.style.height = 'auto'; };
+    body.addEventListener('transitionend', cleanup);
+  }
+}
+
+function syncFinalePhoto() {
+  const text = document.querySelector('.finale-text');
+  const photo = document.querySelector('.finale-photo');
+  if (!text || !photo) return;
+
+  const lineHeight = 30; // 15px font-size × 2 line-height
+  const gapHeight = 16;  // margin-bottom between paragraphs
+
+  const paragraphs = text.querySelectorAll('p');
+  let rowsFromBottom = 0;
+  let photoHeight = 0;
+
+  // 从底部往上数11行（包括空行）
+  for (let i = paragraphs.length - 1; i >= 0; i--) {
+    const p = paragraphs[i];
+    const pHeight = p.offsetHeight;
+    const lineCount = Math.round(pHeight / lineHeight);
+
+    // 统计当前段落的文字行
+    for (let l = 0; l < lineCount; l++) {
+      if (rowsFromBottom >= 11) break;
+      rowsFromBottom++;
+      photoHeight += lineHeight;
+    }
+
+    if (rowsFromBottom >= 11) break;
+
+    // 段落之间的空行（最后一段后面没有gap）
+    if (i > 0) {
+      rowsFromBottom++;
+      photoHeight += gapHeight;
+    }
+  }
+
+  photo.style.height = photoHeight + 'px';
+}
+syncFinalePhoto();
+window.addEventListener('resize', syncFinalePhoto);
+</script>
+</body>
+</html>
