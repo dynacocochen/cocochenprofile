@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="format-detection" content="telephone=no">
 <base href="/cocochenprofile/">
 <title>陈骊琳 | 个人品牌</title>
 <style>
@@ -763,7 +764,7 @@
     <div class="contact-box">
       <div class="links">
         <a href="mailto:cocodynamite@163.com">cocodynamite@163.com</a>
-        <span>+86-19835962267</span>
+        <span><span style="white-space: nowrap;">+86-19835962267</span></span>
       </div>
       <button id="copyBtn" class="copy-btn">一键复制联系方式</button>
     </div>
@@ -826,7 +827,7 @@ function copyContact() {
 
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(text).then(() => {
-      btn.textContent = '复制成功';
+      btn.textContent = '已复制！';
       btn.classList.add('copied');
       setTimeout(() => {
         btn.textContent = '一键复制联系方式';
@@ -849,7 +850,7 @@ function fallbackCopy(text, btn) {
   textarea.select();
   try {
     document.execCommand('copy');
-    btn.textContent = '复制成功';
+    btn.textContent = '已复制！';
     btn.classList.add('copied');
     setTimeout(() => {
       btn.textContent = '一键复制联系方式';
