@@ -357,16 +357,18 @@
   .finale-content { max-width: 680px; margin: 0 auto; }
   .finale-content > p {
     font-size: 15px; line-height: 2; color: var(--text-light); margin-bottom: 16px;
+    text-align: justify; text-justify: inter-ideograph;
   }
   .finale-content > p strong { color: var(--text); font-weight: 600; }
-  .finale-flex { display: flex; gap: 28px; align-items: flex-end; }
-  .finale-text { flex: 1; min-width: 0; }
+  .finale-flex {  }
+  .finale-text { overflow: hidden; }
   .finale-text p {
     font-size: 15px; line-height: 2; color: var(--text-light); margin: 0 0 16px;
+    text-align: justify; text-justify: inter-ideograph;
   }
   .finale-text p:last-child { margin-bottom: 0; }
   .finale-text p strong { color: var(--text); font-weight: 600; }
-  .finale-photo { width: auto; flex-shrink: 0; }
+  .finale-photo { float: right; shape-outside: margin-box; margin-left: 28px; }
   .finale-photo img { height: 100%; width: auto; display: block; border-radius: 8px; }
 
   footer { text-align: center; padding: 40px; color: var(--text-lighter); font-size: 13px; }
@@ -381,7 +383,6 @@
     nav { padding: 0 20px; }
     nav .nav-links { gap: 16px; }
     section { padding: 64px 16px; }
-    .finale-flex { gap: 16px; }
     .skills-grid { flex-direction: column; }
   }
 </style>
@@ -413,7 +414,7 @@
         擅长以内容为锚点，驱动品牌增长与用户连接。<br>
         4段实习、3段实践，从媒体到品牌，从策略到执行。
       </p>
-      <a href="https://my-website-1450299695.cos.ap-hongkong.myqcloud.com/cocoresume.pdf" download class="resume-btn">点击下载简历</a>
+      <a href="https://my-website-1450299695.cos.ap-hongkong.myqcloud.com/cocochen%20profile.pdf" download class="resume-btn">点击下载简历</a>
     </div>
     <div class="hero-photo">
       <img src="https://my-website-1450299695.cos.ap-hongkong.myqcloud.com/profile.jpg" alt="陈骊琳">
@@ -744,13 +745,13 @@
       <p>但如果你还想知道——<strong>我是谁？</strong></p>
       <div class="finale-flex">
         <div class="finale-text">
+          <div class="finale-photo">
+            <img src="https://my-website-1450299695.cos.ap-hongkong.myqcloud.com/photo3.png" alt="陈骊琳">
+          </div>
           <p>我是一个挺爱折腾的人。喜欢把想法变成现实，也喜欢在路上去遇见一些意料之外的人和事。</p>
           <p>热爱音乐，热爱运动，热爱播客和城市漫游。本质上是一个好奇的人，对好的故事、好的内容、好的对话，永远有胃口。</p>
           <p>不是什么天才，也没有特别突出的单项——各方面都还算均衡，但胜在一直保持着学习和前进的劲头。这大概是我最确定的一件事。</p>
           <p>很高兴你翻到了这里。如果想聊聊工作机会、合作的可能性，或者只是想认识一下——<strong>都欢迎随时找我。</strong></p>
-        </div>
-        <div class="finale-photo">
-          <img src="https://my-website-1450299695.cos.ap-hongkong.myqcloud.com/photo3.png" alt="陈骊琳">
         </div>
       </div>
     </div>
@@ -925,7 +926,10 @@ function syncFinalePhoto() {
     }
   }
 
+  // 浮动元素不影响容器高度，直接计算 margin-top 推到底部
+  var textHeight = text.offsetHeight;
   photo.style.height = photoHeight + 'px';
+  photo.style.marginTop = (textHeight - photoHeight) + 'px';
 }
 syncFinalePhoto();
 window.addEventListener('resize', syncFinalePhoto);
