@@ -361,7 +361,7 @@
   }
   .finale-content > p strong { color: var(--text); font-weight: 600; }
   .finale-flex {  }
-  .finale-text { overflow: hidden; }
+  .finale-text { display: flow-root; }
   .finale-text p {
     font-size: 15px; line-height: 2; color: var(--text-light); margin: 0 0 16px;
     text-align: justify; text-justify: inter-ideograph;
@@ -373,6 +373,62 @@
 
   footer { text-align: center; padding: 40px; color: var(--text-lighter); font-size: 13px; }
 
+  /* 作品 */
+  .work-card {
+    background: var(--bg-card); border-radius: 16px;
+    padding: 44px 40px; border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+  }
+  .work-type-tag {
+    display: inline-block; font-size: 12px; letter-spacing: 1px;
+    color: var(--accent-rose); background: var(--accent-rose-light);
+    padding: 4px 16px; border-radius: 20px; margin-bottom: 20px;
+  }
+  .work-title {
+    font-size: 22px; font-weight: 700; color: var(--text);
+    line-height: 1.5;
+  }
+  .work-divider { height: 1px; background: var(--border); margin: 24px 0; }
+  .work-description {
+    font-size: 15px; line-height: 2; color: var(--text-light);
+    text-align: justify; text-justify: inter-ideograph; margin-bottom: 32px;
+  }
+  .work-subsection { margin-bottom: 28px; }
+  .work-subsection:last-of-type { margin-bottom: 0; }
+  .work-subsection h4 {
+    font-size: 14px; color: var(--accent-rose); font-weight: 600;
+    margin-bottom: 14px; letter-spacing: 1px;
+  }
+  .approach-list { list-style: none; padding: 0; }
+  .approach-list li {
+    font-size: 14px; color: var(--text-light); line-height: 1.8;
+    padding: 13px 0 13px 22px; position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+  .approach-list li:last-child { border-bottom: none; }
+  .approach-list li::before {
+    content: ''; position: absolute; left: 0; top: 21px;
+    width: 6px; height: 6px; border-radius: 50%; background: var(--accent-rose);
+  }
+  .approach-label { font-weight: 600; color: var(--text); }
+  .capability-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+  .cap-tag {
+    padding: 6px 18px; border-radius: 20px; font-size: 13px;
+    background: var(--bg-card); border: 1px solid var(--accent-rose);
+    color: var(--accent-rose); font-weight: 500;
+  }
+  .download-section { text-align: center; margin-top: 40px; }
+  .download-btn {
+    display: inline-block; padding: 14px 40px;
+    background: var(--accent-rose); color: #fff;
+    font-size: 15px; font-weight: 500; text-decoration: none;
+    border-radius: 28px; transition: all 0.25s; cursor: pointer;
+  }
+  .download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(196, 168, 162, 0.4);
+  }
+
   @media (max-width: 768px) {
     .hero .container { flex-direction: column-reverse; text-align: center; gap: 32px; }
     .hero-text h1 { font-size: 36px; }
@@ -381,9 +437,15 @@
     .strengths-grid { grid-template-columns: 1fr; }
     .projects-grid { grid-template-columns: 1fr; }
     nav { padding: 0 20px; }
-    nav .nav-links { gap: 16px; }
+    nav .nav-links { gap: 12px; }
+    nav .nav-links a { font-size: 13px; }
     section { padding: 64px 16px; }
     .skills-grid { flex-direction: column; }
+    .work-card { padding: 28px 20px; }
+    .work-title { font-size: 19px; }
+    .work-description { font-size: 14px; line-height: 1.9; }
+    .approach-list li { font-size: 13px; }
+    .cap-tag { font-size: 12px; padding: 5px 14px; }
   }
 </style>
 </head>
@@ -397,6 +459,7 @@
       <li><a href="#strengths">优势</a></li>
       <li><a href="#projects">项目</a></li>
       <li><a href="#experience">经历</a></li>
+      <li><a href="#works">作品</a></li>
       <li><a href="#finale">写在最后</a></li>
       <li><a href="#contact">联系</a></li>
     </ul>
@@ -736,6 +799,43 @@
   </div>
 </section>
 
+<section id="works" style="background: #f2eeea;">
+  <div class="container">
+    <div class="section-label">SELECTED WORK</div>
+    <div class="section-title">作品</div>
+
+    <div class="work-card">
+      <span class="work-type-tag">行业研究</span>
+      <h2 class="work-title">从零了解一个新市场——中东非新能源车案例</h2>
+      <div class="work-divider"></div>
+      <p class="work-description">一份样例研究，选题聚焦中东非新能源车市场，覆盖政策、品牌格局、用户洞察与成本分析。目标不是展示对某个行业的长期积累，而是验证一种能力：面对陌生行业，快速搭建分析框架、交叉验证信息、提炼可读可用的判断。</p>
+
+      <div class="work-subsection">
+        <h4>研究思路</h4>
+        <ul class="approach-list">
+          <li><span class="approach-label">TCO模型</span>：基于四国官方能源价格，测算EV回本周期</li>
+          <li><span class="approach-label">三层拆解</span>：整体市场 → 新能源细分 → 中国品牌出海</li>
+          <li><span class="approach-label">市场约束</span>：识别外汇/电力/统计口径三类有效边界</li>
+        </ul>
+      </div>
+
+      <div class="work-subsection">
+        <h4>能力标签</h4>
+        <div class="capability-tags">
+          <span class="cap-tag">信息整合</span>
+          <span class="cap-tag">结构化分析</span>
+          <span class="cap-tag">数据驱动的判断力</span>
+          <span class="cap-tag">快速学习</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="download-section">
+      <a href="https://my-website-1450299695.cos.ap-hongkong.myqcloud.com/NEV%20Market%20Brief.pdf" download class="download-btn">📄下载完整PDF报告</a>
+    </div>
+  </div>
+</section>
+
 <section id="finale">
   <div class="container">
     <div class="section-label">ABOUT ME</div>
@@ -897,39 +997,13 @@ function syncFinalePhoto() {
   const photo = document.querySelector('.finale-photo');
   if (!text || !photo) return;
 
-  const lineHeight = 30; // 15px font-size × 2 line-height
-  const gapHeight = 16;  // margin-bottom between paragraphs
+  // 11 行文字高度（font-size: 15px, line-height: 2 → 每行 30px）
+  const lineHeight = parseFloat(getComputedStyle(text).lineHeight);
+  const photoHeight = lineHeight * 11;
 
-  const paragraphs = text.querySelectorAll('p');
-  let rowsFromBottom = 0;
-  let photoHeight = 0;
-
-  // 从底部往上数11行（包括空行）
-  for (let i = paragraphs.length - 1; i >= 0; i--) {
-    const p = paragraphs[i];
-    const pHeight = p.offsetHeight;
-    const lineCount = Math.round(pHeight / lineHeight);
-
-    // 统计当前段落的文字行
-    for (let l = 0; l < lineCount; l++) {
-      if (rowsFromBottom >= 11) break;
-      rowsFromBottom++;
-      photoHeight += lineHeight;
-    }
-
-    if (rowsFromBottom >= 11) break;
-
-    // 段落之间的空行（最后一段后面没有gap）
-    if (i > 0) {
-      rowsFromBottom++;
-      photoHeight += gapHeight;
-    }
-  }
-
-  // 浮动元素不影响容器高度，直接计算 margin-top 推到底部
-  var textHeight = text.offsetHeight;
   photo.style.height = photoHeight + 'px';
-  photo.style.marginTop = (textHeight - photoHeight) + 'px';
+  // 图片底部对齐文字底部
+  photo.style.marginTop = (text.offsetHeight - photoHeight) + 'px';
 }
 syncFinalePhoto();
 window.addEventListener('resize', syncFinalePhoto);
